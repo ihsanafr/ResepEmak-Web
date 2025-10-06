@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Recipes;
 use App\Filament\Resources\Recipes\Pages\CreateRecipe;
 use App\Filament\Resources\Recipes\Pages\EditRecipe;
 use App\Filament\Resources\Recipes\Pages\ListRecipes;
+use App\Filament\Resources\Recipes\RelationManagers\TutorialsRelationManager;
 use App\Filament\Resources\Recipes\Schemas\RecipeForm;
 use App\Filament\Resources\Recipes\Tables\RecipesTable;
 use App\Models\Recipe;
@@ -38,6 +39,7 @@ class RecipeResource extends Resource
     {
         return [
             //
+            TutorialsRelationManager::class
         ];
     }
 

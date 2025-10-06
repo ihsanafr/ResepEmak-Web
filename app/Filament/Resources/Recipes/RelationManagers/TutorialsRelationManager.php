@@ -35,8 +35,14 @@ class TutorialsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
-                TextColumn::make('name')
-                    ->searchable(),
+
+                TextColumn::make('sequence')
+                ->label('No')
+                ->getStateUsing(function ($rowLoop, $record) {
+                    return $rowLoop->iteration;
+                }),
+
+                TextColumn::make('name'),
             ])
             ->filters([
                 //
@@ -47,7 +53,6 @@ class TutorialsRelationManager extends RelationManager
             ])
             ->recordActions([
                 EditAction::make(),
-                DetachAction::make(),
                 DeleteAction::make(),
             ])
             ->toolbarActions([
