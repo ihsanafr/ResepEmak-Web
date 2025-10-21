@@ -2,6 +2,7 @@
 use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\RecipeController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -9,3 +10,6 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/category/{category:slug}',[CategoryController::class,'show']);
 Route::apiResource('/categories',CategoryController::class);
+
+Route::get('/recipe/{recipe:slug}',[RecipeController::class,'show']);
+Route::apiResource('/recipes',RecipeController::class);
